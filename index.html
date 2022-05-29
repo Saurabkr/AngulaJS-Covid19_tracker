@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script src="js/myscript.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    <div class="container" >
+       <img src="https://i.pinimg.com/736x/54/38/b4/5438b457eaacaf0007923a0f5583c000.jpg"  class="image">
+       
+    <div class="jumbotron py-3" id="jumbotroni">
+        <h1 class="text-center">{{title}}</h1>
+        <p class="pt-3" >The Weekly Epidemiological Update provides an overview of the global, regional and country-level COVID-19 cases and deaths, highlighting key data and trends; as well as other pertinent epidemiological information concerning the COVID-19 pandemic.
+
+        The COVID-19 Weekly Operational Update reports on WHO and partners’ actions in response to the pandemic.
+        Coronavirus Disease (COVID-19) is a disease caused by the newly emerged coronavirus SARS-CoV-2. COVID-19 is a nationally notifiable disease and reporting cases to CDC is supported by routine case notification through the National Notifiable Diseases Surveillance System (NNDSS), as well as resources provided through the CDC COVID-19 response.
+        </p>
+
+        <!-- start all data -->
+        <div class="row text-center pt-3">
+            <div class="col-md-4">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                       <h3>Confirmed Cases</h3>
+                       <h3>{{all_data.confirmed.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                       <h3>Recovered Cases</h3>
+                       <h3>{{all_data.recovered.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                       <h3>Fatality Rate</h3>
+                       <h3>{{all_data.deaths.value}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end all data -->
+
+        <input 
+        type="text" 
+        placeholder="Enter Country Name" 
+        class="form-control mt-4" 
+        ng-model="c" 
+        ng-change="get_c_data()"
+        />
+
+        
+
+        <!-- start c data -->
+     <div class="container" ng-if="c_data">
+        <h1 class="text-center mt-4 text-uppercase">{{c}} Covid'19 Status : </h1>
+        
+        <div class="row text-center mt-4"  >
+            <div class="col-md-4">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                       <h3>Confirmed Cases</h3>
+                       <h3>{{c_data.confirmed.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                       <h3>Recovered Cases</h3>
+                       <h3>{{c_data.recovered.value}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body">
+                       <h3>Fatality Rate</h3>
+                       <h3>{{c_data.deaths.value}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!--end c data -->
+    </div>
+   </div>
+</body>
+</html>

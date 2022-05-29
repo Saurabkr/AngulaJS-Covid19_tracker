@@ -1,0 +1,16 @@
+.container{
+    background-color: rgb(186 219 234);
+    text-align: center;
+    border-image: 30px;
+    
+}
+.image{
+    height: 251px;
+    width: 250px;
+   
+    border-radius: 20px;
+    text-align: center;
+}
+#jumbotroni{
+font-family: Georgia, 'Times New Roman', Times, serif;
+}
